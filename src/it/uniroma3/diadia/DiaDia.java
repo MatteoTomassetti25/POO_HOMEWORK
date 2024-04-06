@@ -152,8 +152,12 @@ public class DiaDia {
 		if(nomeAttrezzo == null)
 			System.out.println("cosa vuoi prendere?");
 		Attrezzo a = partita.getLab().getStanzaCorrente().getAttrezzo(nomeAttrezzo);
+		if(a == null)
+			System.out.println("l'attrezzo non esiste!");
+		else {
 		partita.getLab().getStanzaCorrente().removeAttrezzo(a);
 		partita.getGiocatore().getBorsa().addAttrezzo(a);
+		}
 
 
 	}
@@ -165,8 +169,12 @@ public class DiaDia {
 		if(nomeAttrezzo == null)
 			System.out.println("cosa vuoi posare?");
 		Attrezzo a = partita.getLab().getStanzaCorrente().getAttrezzo(nomeAttrezzo);
+		if(a == null)
+			System.out.println("l'attrezzo non esiste!");
+		else {
 		partita.getLab().getStanzaCorrente().addAttrezzo(a);
 		partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
+		}
 	}
 	
 	public static void main(String[] argc) {
