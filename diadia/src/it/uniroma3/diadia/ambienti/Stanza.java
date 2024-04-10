@@ -144,7 +144,8 @@ public class Stanza {
 			if (direzione!=null)
 				risultato.append(" " + direzione);
 		risultato.append("\nAttrezzi nella stanza: ");
-		for (Attrezzo attrezzo : this.attrezzi) {
+		for (int i = 0; i<numeroAttrezzi;i++) {  //facendo cosi itero solo la parte iniziale scritt compatta
+			Attrezzo attrezzo = this.attrezzi[i];
 			if(attrezzo != null) {
 				risultato.append(attrezzo.toString()+" ");
 			}
@@ -159,7 +160,9 @@ public class Stanza {
 	public boolean hasAttrezzo(String nomeAttrezzo) {
 		boolean trovato;
 		trovato = false;
-		for (Attrezzo attrezzo : this.attrezzi) {
+		for (int i = 0; i<this.numeroAttrezzi; i++) {
+			Attrezzo attrezzo = this.attrezzi[i];
+			if(attrezzo != null)
 			if (attrezzo.getNome().equals(nomeAttrezzo))
 				trovato = true;
 		}
@@ -175,7 +178,8 @@ public class Stanza {
 	public Attrezzo getAttrezzo(String nomeAttrezzo) {
 		Attrezzo attrezzoCercato;
 		attrezzoCercato = null;
-		for (Attrezzo attrezzo : this.attrezzi) {
+		for (int i = 0; i<numeroAttrezzi;i++) {
+			Attrezzo attrezzo = this.attrezzi[i];
 			if(attrezzo != null) 
 				if (attrezzo.getNome().equals(nomeAttrezzo))
 					attrezzoCercato = attrezzo;

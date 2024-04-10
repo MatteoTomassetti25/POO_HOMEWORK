@@ -132,7 +132,7 @@ public class DiaDia {
 		if(direzione==null)
 			io.mostraMessaggio("Dove vuoi andare ?");
 		Stanza prossimaStanza = null;
-		prossimaStanza = this.partita.getLab().getStanzaCorrente().getStanzaAdiacente(direzione); //modificato
+		prossimaStanza = this.partita.getLab().getStanzaIniziale().getStanzaAdiacente(direzione); //modificato
 		if (prossimaStanza == null)
 			io.mostraMessaggio("Direzione inesistente");
 		else {
@@ -140,7 +140,7 @@ public class DiaDia {
 			int cfu = this.partita.getGiocatore().getCfu();
 			this.partita.getGiocatore().setCfu(cfu--);
 		}
-		io.mostraMessaggio(partita.getLab().getStanzaCorrente().getDescrizione()+"\n"+"M: n CFU "+partita.getGiocatore().getCfu());
+		io.mostraMessaggio(partita.getLab().getStanzaIniziale().getDescrizione()+"\n"+"M: n CFU "+partita.getGiocatore().getCfu());
 	}
 
 	/**
@@ -157,11 +157,11 @@ public class DiaDia {
 	public void prendi(String nomeAttrezzo) {
 		if(nomeAttrezzo == null)
 			io.mostraMessaggio("cosa vuoi prendere?");
-		Attrezzo a = partita.getLab().getStanzaCorrente().getAttrezzo(nomeAttrezzo);
+		Attrezzo a = partita.getLab().getStanzaIniziale().getAttrezzo(nomeAttrezzo);
 		if(a == null)
 			io.mostraMessaggio("l'attrezzo non esiste!");
 		else {
-		partita.getLab().getStanzaCorrente().removeAttrezzo(a);
+		partita.getLab().getStanzaIniziale().removeAttrezzo(a);
 		partita.getGiocatore().getBorsa().addAttrezzo(a);
 		}
 
@@ -174,11 +174,11 @@ public class DiaDia {
 	public void posa(String nomeAttrezzo) {
 		if(nomeAttrezzo == null)
 			io.mostraMessaggio("cosa vuoi posare?");
-		Attrezzo a = partita.getLab().getStanzaCorrente().getAttrezzo(nomeAttrezzo);
+		Attrezzo a = partita.getLab().getStanzaIniziale().getAttrezzo(nomeAttrezzo);
 		if(a == null)
 			io.mostraMessaggio("l'attrezzo non esiste!");
 		else {
-		partita.getLab().getStanzaCorrente().addAttrezzo(a);
+		partita.getLab().getStanzaIniziale().addAttrezzo(a);
 		partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
 		}
 	}

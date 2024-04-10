@@ -37,12 +37,12 @@ public class Comando {
 		Scanner scannerDiParole = new Scanner(istruzione);
 
 		// prima parola: nome del comando
-		if (scannerDiParole.hasNext())
-			this.nome = scannerDiParole.next(); 
+		if (scannerDiParole.hasNext())  //se ho stringa vuota non entra
+			this.nome = scannerDiParole.next(); //se non entro nome rimane null come è iniz NNPPEE
 
 		// seconda parola: eventuale parametro
-		if (scannerDiParole.hasNext())
-			this.parametro = scannerDiParole.next();
+		if (scannerDiParole.hasNext()) //se ho stringa vuota non entra
+			this.parametro = scannerDiParole.next(); //param resta null NNPPEE
 	}
 
 	public String getNome() {
