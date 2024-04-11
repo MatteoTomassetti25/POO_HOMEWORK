@@ -48,37 +48,38 @@ public class Borsa {
 	public boolean hasAttrezzo(String nomeAttrezzo) {
 		return this.getAttrezzo(nomeAttrezzo)!=null;
 	}
-//	public Attrezzo removeAttrezzo(String nomeAttrezzo) {
-//		Attrezzo a = null;
-//		int i = 0;
-//		if(nomeAttrezzo != null) {
-//			
-//			for(Attrezzo elemento : attrezzi) {
-//				if(elemento != null)
-//				if(elemento.getNome().equals(nomeAttrezzo)) {
-//					attrezzi[i] = null;
-//					numeroAttrezzi--;
-//					i++;
-//				}
-//				
-//			}return a;
-//				
-//		}
-//		return a;
-//	}
-	
 	public Attrezzo removeAttrezzo(String nomeAttrezzo) {
 		Attrezzo a = null;
+		int i = 0;
 		if(nomeAttrezzo != null) {
+			
 			for(Attrezzo elemento : attrezzi) {
 				if(elemento != null)
 				if(elemento.getNome().equals(nomeAttrezzo)) {
-					elemento = null;
+					attrezzi[i] = null;
 					numeroAttrezzi--;
+					i++;
 				}
+				
 			}return a;
-		}return a;
+				
+		}
+		return a;
 	}
+	
+//	public Attrezzo removeAttrezzo(String nomeAttrezzo) {
+//		Attrezzo a = null;
+//		if(nomeAttrezzo != null) {
+//			int i=0;
+//			for(Attrezzo elemento : attrezzi) {
+//				if(elemento != null)
+//				if(elemento.getNome().equals(nomeAttrezzo)) {
+//					attrezzi[i]= null;
+//					numeroAttrezzi--;
+//				}i++;
+//			}return a;
+//		}return a;
+//	}
 	
 	public String toString() {
 		StringBuilder s = new StringBuilder();

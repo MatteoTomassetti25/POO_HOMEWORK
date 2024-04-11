@@ -14,13 +14,13 @@ public class LabirintoTest {
 	@Test
 	public void TestSetStanzaCorrente() {
 		l.setStanzaCorrente(s);
-		assertEquals(s.getNome(), l.getStanzaIniziale().getNome());
+		assertEquals(s.getNome(), l.getStanzaCorrente().getNome());
 	}
 
 	@Test
 	public void TestGetStanzaCorrente() {
 		l.init();
-		assertEquals("Atrio", l.getStanzaIniziale().getNome());
+		assertEquals("Atrio", l.getStanzaCorrente().getNome());
 	}
 
 	@Test

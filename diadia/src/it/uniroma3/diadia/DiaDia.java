@@ -88,7 +88,7 @@ public class DiaDia {
 	 */
 	private boolean processaIstruzione(String istruzione) {
 		Comando comandoDaEseguire = new Comando(istruzione);
-		
+
 		if(comandoDaEseguire.getNome()==null) {
 			io.mostraMessaggio("non hai inserito nessun comando");
 		}
@@ -132,7 +132,7 @@ public class DiaDia {
 		if(direzione==null)
 			io.mostraMessaggio("Dove vuoi andare ?");
 		Stanza prossimaStanza = null;
-		prossimaStanza = this.partita.getLab().getStanzaIniziale().getStanzaAdiacente(direzione); //modificato
+		prossimaStanza = this.partita.getLab().getStanzaCorrente().getStanzaAdiacente(direzione); //modificato
 		if (prossimaStanza == null)
 			io.mostraMessaggio("Direzione inesistente");
 		else {
@@ -140,7 +140,7 @@ public class DiaDia {
 			int cfu = this.partita.getGiocatore().getCfu();
 			this.partita.getGiocatore().setCfu(cfu--);
 		}
-		io.mostraMessaggio(partita.getLab().getStanzaIniziale().getDescrizione()+"\n"+"M: n CFU "+partita.getGiocatore().getCfu());
+		io.mostraMessaggio(partita.getLab().getStanzaCorrente().getDescrizione()+"\n"+"M: n CFU "+partita.getGiocatore().getCfu());
 	}
 
 	/**
@@ -157,36 +157,37 @@ public class DiaDia {
 	public void prendi(String nomeAttrezzo) {
 		if(nomeAttrezzo == null)
 			io.mostraMessaggio("cosa vuoi prendere?");
-		Attrezzo a = partita.getLab().getStanzaIniziale().getAttrezzo(nomeAttrezzo);
-		if(a == null)
-			io.mostraMessaggio("l'attrezzo non esiste!");
-		else {
-		partita.getLab().getStanzaIniziale().removeAttrezzo(a);
+		Attrezzo a = partita.getLab().getStanzaCorrente().getAttrezzo(nomeAttrezzo);
+		
 		partita.getGiocatore().getBorsa().addAttrezzo(a);
-		}
-
+		partita.getLab().getStanzaCorrente().removeAttrezzo(a);
 
 	}
 
-	/*
-	 * Metodo che posa un oggetto dalla borsa e lo ripone nella stanza corrente
-	 */
-	public void posa(String nomeAttrezzo) {
-		if(nomeAttrezzo == null)
-			io.mostraMessaggio("cosa vuoi posare?");
-		Attrezzo a = partita.getLab().getStanzaIniziale().getAttrezzo(nomeAttrezzo);
-		if(a == null)
-			io.mostraMessaggio("l'attrezzo non esiste!");
-		else {
-		partita.getLab().getStanzaIniziale().addAttrezzo(a);
-		partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
-		}
-	}
+
+
+
+/*
+ * Metodo che posa un oggetto dalla borsa e lo ripone nella stanza corrente
+ */
+public void posa(String nomeAttrezzo) {
+	if(nomeAttrezzo == null)
+		io.mostraMessaggio("cosa vuoi posare?");
+	Attrezzo a = partita.getLab().getStanzaCorrente().getAttrezzo(nomeAttrezzo);
+	partita.getLab().getStanzaCorrente().addAttrezzo(a);
+	partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
 	
-	public static void main(String[] argc) {
-		DiaDia gioco = new DiaDia();
-		gioco.gioca();
-	}
+	System.out.println(partita.getLab().getStanzaCorrente().getAttrezzo(nomeAttrezzo));
+	System.out.println(partita.getGiocatore().getBorsa().getAttrezzo(nomeAttrezzo));
+	
+	
+	
+}
+
+public static void main(String[] argc) {
+	DiaDia gioco = new DiaDia();
+	gioco.gioca();
+}
 
 
 }

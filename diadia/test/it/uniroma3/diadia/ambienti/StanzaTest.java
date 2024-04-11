@@ -29,16 +29,26 @@ public class StanzaTest {
 	}
 
 	@Test
-	public void TestGetAttrezzo() {
+	public void TestGetAttrezzo_vuoto() {
+		assertNull(s.getAttrezzo("vuoto"));
+	}
+	
+	@Test
+	public void TestGetAttrezzo_nontrovato() {
+		s.addAttrezzo(a);
+		assertNull(s.getAttrezzo("test"));
+	}
+	
+	@Test
+	public void TestGetAttrezzo_attrezzoEsistente() {
 		s.addAttrezzo(a);
 		assertNotNull(s.getAttrezzo("spada"));
-		assertEquals(s.getAttrezzo("spada"), a);
 	}
 
-		@Test
-		public void TestHasAttrezzo() {
-			s.addAttrezzo(a);
-			assertTrue(s.hasAttrezzo("spada"));
-		}
+	@Test
+	public void TestHasAttrezzo() {
+		s.addAttrezzo(a);
+		assertTrue(s.hasAttrezzo("spada"));
+	}
 
 }

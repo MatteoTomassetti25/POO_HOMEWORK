@@ -42,13 +42,14 @@ public class Labirinto {
 		stanzaVincente = biblioteca;
 	}
 
-	public Stanza getStanzaIniziale() {
+	public Stanza getStanzaCorrente() {
 		return this.stanzaIniziale;
 	}
 
 	public void setStanzaCorrente(Stanza stanzaCorrente) {
 		this.stanzaIniziale = stanzaCorrente;
 	}
+	
 	
 	public Stanza getStanzaVincente() {
 		return stanzaVincente;

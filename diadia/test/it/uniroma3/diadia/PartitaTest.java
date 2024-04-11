@@ -23,7 +23,7 @@ public class PartitaTest {
 	@Test
 	public void TestGetStanzaCorrente() {
 		p.getLab().setStanzaCorrente(s);
-		assertEquals("test", p.getLab().getStanzaIniziale().getNome()); //ATTENZIONE: confrontare sempre lo stesso tipo di ritorno
+		assertEquals("test", p.getLab().getStanzaCorrente().getNome()); //ATTENZIONE: confrontare sempre lo stesso tipo di ritorno
 	}
 
 	@Test

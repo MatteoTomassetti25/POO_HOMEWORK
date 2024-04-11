@@ -57,7 +57,7 @@ public class Partita {
 		//		creaStanze();
 		lab = new Labirinto();
 		giocatore = new Giocatore();
-		this.stanzaCorrente=this.lab.getStanzaIniziale();
+		stanzaCorrente = this.lab.getStanzaCorrente();
 		this.finita = false;
 		this.cfu = CFU_INIZIALI;
 		lab.init();
@@ -102,6 +102,10 @@ public class Partita {
 	//		stanzaVincente = biblioteca;
 	//    }
 
+	public Stanza getStanzaCorrente() {
+		return stanzaCorrente;
+	}
+
 	//	public Stanza getStanzaVincente() {
 	//		return stanzaVincente;
 	//	}
@@ -119,7 +123,7 @@ public class Partita {
 	 * @return vero se partita vinta
 	 */
 	public boolean vinta() {
-		return lab.getStanzaIniziale()== lab.getStanzaVincente();
+		return lab.getStanzaCorrente()== lab.getStanzaVincente();
 	}
 
 	public Labirinto getLab() {
