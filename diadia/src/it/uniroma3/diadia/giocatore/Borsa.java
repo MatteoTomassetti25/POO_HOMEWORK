@@ -93,4 +93,16 @@ public class Borsa {
 			s.append("Borsa vuota");
 		return s.toString();
 	}
+
+	//test matteo
+	public void getAttrezzi(){
+		Attrezzo attrezzo;
+		for(int i=0; i<numeroAttrezzi;i++){
+			attrezzo=this.attrezzi[i];
+			if(attrezzo != null){
+				System.out.println("attrezzo nella borsa: "+attrezzo);
+			}
+		}
+	}
+
 }

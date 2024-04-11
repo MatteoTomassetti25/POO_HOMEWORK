@@ -141,6 +141,7 @@ public class DiaDia {
 			this.partita.getGiocatore().setCfu(cfu--);
 		}
 		io.mostraMessaggio(partita.getLab().getStanzaCorrente().getDescrizione()+"\n"+"M: n CFU "+partita.getGiocatore().getCfu());
+		partita.getGiocatore().getBorsa().getAttrezzi();
 	}
 
 	/**
@@ -173,15 +174,9 @@ public class DiaDia {
 public void posa(String nomeAttrezzo) {
 	if(nomeAttrezzo == null)
 		io.mostraMessaggio("cosa vuoi posare?");
-	Attrezzo a = partita.getLab().getStanzaCorrente().getAttrezzo(nomeAttrezzo);
+	Attrezzo a = partita.getGiocatore().getBorsa().getAttrezzo(nomeAttrezzo);
 	partita.getLab().getStanzaCorrente().addAttrezzo(a);
 	partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
-	
-	System.out.println(partita.getLab().getStanzaCorrente().getAttrezzo(nomeAttrezzo));
-	System.out.println(partita.getGiocatore().getBorsa().getAttrezzo(nomeAttrezzo));
-	
-	
-	
 }
 
 public static void main(String[] argc) {
