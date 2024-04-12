@@ -16,11 +16,17 @@ public class LabirintoTest {
 		l.setStanzaCorrente(s);
 		assertEquals(s.getNome(), l.getStanzaCorrente().getNome());
 	}
+	
 
 	@Test
 	public void TestGetStanzaCorrente() {
 		l.init();
 		assertEquals("Atrio", l.getStanzaCorrente().getNome());
+	}
+	
+	@Test
+	public void TestGetStanzaCorrente_Vuota() {
+		assertNull(l.getStanzaCorrente());
 	}
 
 	@Test

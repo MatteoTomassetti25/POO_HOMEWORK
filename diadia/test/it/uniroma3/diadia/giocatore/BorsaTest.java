@@ -27,6 +27,17 @@ public class BorsaTest {
 		b.addAttrezzo(a);
 		assertEquals(a, b.getAttrezzo("spada"));
 	}
+	
+	@Test
+	public void TestGetAttrezzo_vuoto() {
+		assertNull(b.getAttrezzo("spada"));
+	}
+	
+	@Test
+	public void TestGetAttrezzo_Attrezzo_non_presente() {
+		b.addAttrezzo(a);
+		assertNull(b.getAttrezzo("vuoto"));
+	}
 
 	@Test
 	public void TestGetPeso() {

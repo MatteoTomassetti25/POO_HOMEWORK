@@ -25,10 +25,16 @@ public class PartitaTest {
 		p.getLab().setStanzaCorrente(s);
 		assertEquals("test", p.getLab().getStanzaCorrente().getNome()); //ATTENZIONE: confrontare sempre lo stesso tipo di ritorno
 	}
+	
 
 	@Test
 	public void TestGetStanzaVincente() {
 		assertEquals("Biblioteca", p.getLab().getStanzaVincente().getNome());
+	}
+
+	@Test 
+	public void TestGetStanzaCorrente_Vuota() {
+		assertNull(p.getStanzaCorrente());
 	}
 
 }

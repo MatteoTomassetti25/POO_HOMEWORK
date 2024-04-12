@@ -16,6 +16,12 @@ public class StanzaTest {
 	public void TestGetStanzaAdiacente() {
 		assertNull(s.getStanzaAdiacente("est"));
 	}
+	
+	@Test
+	public void TestGetStanzaAdiacente_stanzaPresente() {
+		s.impostaStanzaAdiacente("est", s2);
+		assertNotNull(s.getStanzaAdiacente("est"));
+	}
 
 	@Test
 	public void TestImpostaStanzaAdiacente() {
