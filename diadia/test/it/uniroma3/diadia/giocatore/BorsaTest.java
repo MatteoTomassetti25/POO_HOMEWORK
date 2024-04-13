@@ -56,4 +56,5 @@ public class BorsaTest {
 		b.removeAttrezzo("spada");
 		assertTrue(b.isEmpty());
 	}
+
 }
