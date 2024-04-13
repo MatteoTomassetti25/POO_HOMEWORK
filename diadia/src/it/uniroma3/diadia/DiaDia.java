@@ -141,7 +141,7 @@ public class DiaDia {
 			this.partita.getGiocatore().setCfu(cfu--);
 		}
 		io.mostraMessaggio(partita.getLab().getStanzaCorrente().getDescrizione()+"\n"+"M: n CFU "+partita.getGiocatore().getCfu());
-		partita.getGiocatore().getBorsa().getAttrezzi();
+		partita.getGiocatore().getBorsa().stampaAttrezzi();
 	}
 
 	/**
@@ -156,33 +156,53 @@ public class DiaDia {
 	 * Consiglio prima mettere nella borsa poi rimuovere
 	 */
 	public void prendi(String nomeAttrezzo) {
-		if(nomeAttrezzo == null)
+		if(nomeAttrezzo == null) {
 			io.mostraMessaggio("cosa vuoi prendere?");
+			return;
+		}
+
+
 		Attrezzo a = partita.getLab().getStanzaCorrente().getAttrezzo(nomeAttrezzo);
-		
-		partita.getGiocatore().getBorsa().addAttrezzo(a);
-		partita.getLab().getStanzaCorrente().removeAttrezzo(a);
+		if(a == null) {
+			io.mostraMessaggio("L'oggetto non esiste!");
+			return;
+		}else {
+
+			partita.getGiocatore().getBorsa().addAttrezzo(a);
+			partita.getLab().getStanzaCorrente().removeAttrezzo(a);
+		}
 
 	}
 
 
 
 
-/*
- * Metodo che posa un oggetto dalla borsa e lo ripone nella stanza corrente
- */
-public void posa(String nomeAttrezzo) {
-	if(nomeAttrezzo == null)
-		io.mostraMessaggio("cosa vuoi posare?");
-	Attrezzo a = partita.getGiocatore().getBorsa().getAttrezzo(nomeAttrezzo);
-	partita.getLab().getStanzaCorrente().addAttrezzo(a);
-	partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
-}
+	/*
+	 * Metodo che posa un oggetto dalla borsa e lo ripone nella stanza corrente
+	 */
+	public void posa(String nomeAttrezzo) {
+		if(nomeAttrezzo == null) {
+			io.mostraMessaggio("cosa vuoi posare?");
+			return;
+		}
+		Attrezzo a = partita.getGiocatore().getBorsa().getAttrezzo(nomeAttrezzo);
 
-public static void main(String[] argc) {
-	DiaDia gioco = new DiaDia();
-	gioco.gioca();
-}
+		if(a == null) {
+			io.mostraMessaggio("L'oggetto non esiste!");
+			return;
+		}
+		else {
+			partita.getLab().getStanzaCorrente().addAttrezzo(a);
+			partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
+		}
+	}
+
+
+
+	public static void main(String[] argc) {
+		DiaDia gioco = new DiaDia();
+		gioco.gioca();
+	}
 
 
 }

@@ -11,6 +11,7 @@ public class StanzaTest {
 	Stanza s = new Stanza("test");
 	Stanza s2 = new Stanza("test2");
 	Attrezzo a = new Attrezzo("spada", 10);
+	Attrezzo b = new Attrezzo("bastone",0);
 
 	@Test
 	public void TestGetStanzaAdiacente() {
@@ -55,6 +56,19 @@ public class StanzaTest {
 	public void TestHasAttrezzo() {
 		s.addAttrezzo(a);
 		assertTrue(s.hasAttrezzo("spada"));
+	}
+	
+	@Test
+	public void TestremoveAttrezzo() {
+		s.addAttrezzo(a);
+		assertTrue(s.removeAttrezzo(a));
+	}
+	
+	@Test
+	public void TestremuveAttrezzo_piuOggetti() {
+		s.addAttrezzo(a);
+		s.addAttrezzo(b);
+	    assertTrue(s.removeAttrezzo(b));
 	}
 
 }
